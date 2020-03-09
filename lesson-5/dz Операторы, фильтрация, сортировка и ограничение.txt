@@ -1,0 +1,17 @@
+1.
+
+UPDATE users SET created_at = CURRENT_TIMESTAMP,
+    updated_at = CURRENT_TIMESTAMP;
+
+
+2.
+
+UPDATE users SET created_at = STR_TO_DATE(created_at ,'%d.%m.%Y %H:%i');
+UPDATE users SET updated_at = STR_TO_DATE(updated_at,'%d.%m.%Y %H:%i');
+
+ALTER TABLE users MODIFY COLUMN created_at DATETIME;
+ALTER TABLE users MODIFY COLUMN updated_at DATETIME;
+
+
+3.
+... ORDER BY CASE WHEN `название столбца`='0' THEN 1 ELSE 0 END, `название столбца` ...
