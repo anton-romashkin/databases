@@ -1,0 +1,19 @@
+1.
+Подсчитайте средний возраст пользователей в таблице users
+select avg(age) from users;
+
+
+2.
+Подсчитайте количество дней рождения, которые приходятся на каждый из дней недели.
+Следует учесть, что необходимы дни недели текущего года, а не года рождения.
+
+SELECT
+COUNT(*) as users_born,
+DATE_FORMAT(STR_TO_DATE(CONCAT(DATE_FORMAT(created_at, '%d.%m'), '.2020'), '%d.%m.%Y'), '%W') as week_day
+FROM users
+GROUP BY
+week_day;
+
+3.
+SELECT exp(SUM(log(value))) AS mult
+FROM users;
