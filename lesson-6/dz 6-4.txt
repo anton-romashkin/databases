@@ -1,0 +1,26 @@
+SELECT
+  user AS user,
+  sum(actions) AS actions
+
+FROM
+  (SELECT
+    user_id AS user,
+    count(*) AS actions
+    FROM likes
+    GROUP BY user_id
+  UNION
+  SELECT
+    from_user_id AS user,
+    COUNT(*) AS actions
+    FROM messages
+    GROUP BY from_user_id
+  UNION
+  SELECT
+    user_id AS user,
+    COUNT(*) AS actions
+    FROM communities_users
+    GROUP BY user_id) AS group_table
+
+GROUP BY user
+ORDER BY actions
+LIMIT 10;
