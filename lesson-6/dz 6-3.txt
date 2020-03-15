@@ -1,0 +1,19 @@
+SELECT
+  'male' AS gender,
+  COUNT(*) AS likes
+  FROM likes
+  WHERE user_id in (SELECT
+    user_id
+    FROM profiles
+    WHERE gender = 'm')
+  GROUP BY gender
+  UNION
+  SELECT
+  'female' AS gender,
+  COUNT(*) AS likes
+  FROM likes
+  WHERE user_id in (SELECT
+    user_id
+    FROM profiles
+    WHERE gender = 'f')
+  GROUP BY gender;
