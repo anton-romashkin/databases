@@ -5,7 +5,7 @@ FROM
   profiles.birthday AS birthday
 FROM likes
 JOIN profiles
-ON likes.user_id = profiles.user_id
+ON likes.target_id = profiles.user_id
 GROUP BY profiles.birthday
 ORDER BY profiles.birthday DESC
 LIMIT 10) AS tbl;
