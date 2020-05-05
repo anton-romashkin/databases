@@ -11,7 +11,6 @@ CREATE TABLE attachments(
 DROP TABLE IF EXISTS posts;
 CREATE TABLE posts (
 	id SERIAL PRIMARY KEY,
-    type_id BIGINT UNSIGNED NOT NULL,
     user_id BIGINT UNSIGNED NOT NULL,
 	attachment_id BIGINT UNSIGNED,
     head VARCHAR(255),
