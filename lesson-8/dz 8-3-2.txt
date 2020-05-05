@@ -1,8 +1,0 @@
-SELECT
-  p.gender, COUNT(l.id) AS likes
-FROM likes l
-JOIN profiles p
-ON l.user_id = p.user_id
-GROUP BY p.gender
-ORDER BY likes DESC
-LIMIT 1;
