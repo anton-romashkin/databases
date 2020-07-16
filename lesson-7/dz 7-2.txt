@@ -1,6 +1,0 @@
-SELECT
-  products.name AS product,
-  catalogs.name AS category
-FROM products
-LEFT JOIN catalogs
-ON products.catalog_id = catalogs.id
